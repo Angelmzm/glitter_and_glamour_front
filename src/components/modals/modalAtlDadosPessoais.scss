@@ -1,0 +1,63 @@
+.openModalBtn{
+    
+    button {
+        font-size: 14px;
+        background-color: #EC4A7D;
+        width: 120px;
+        height: 35px;
+        border-radius: 18px;
+        border: none;
+        margin-top: 30px;
+        margin-right: 10px;
+        box-sizing: border-box;
+        cursor: pointer;
+        padding: 10px;
+        color: white;
+    }
+}
+
+.dadosForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+
+    input {
+        padding: 8px;
+        border: 1px solid #EC4A7D;
+        border-radius: 4px;
+        width: 100%;
+        max-width: 280px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+
+        &::placeholder {
+            font-size: 14px;
+            color: black;
+        }
+    }
+
+    label {
+        font-size: 14px;
+        color: black;
+        font-weight: 550;
+        width: 280px;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    button {
+        font-size: 14px;
+        color: white;
+        background-color: #EC4A7D;
+        width: 100%;
+        max-width: 280px;
+        height: 35px;
+        border-radius: 15px;
+        border: none;
+        margin-top: 15px;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+}

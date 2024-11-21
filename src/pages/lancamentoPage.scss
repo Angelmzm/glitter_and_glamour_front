@@ -1,0 +1,109 @@
+.lancamentoPagecontainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  
+    .lancamentoPageSection {
+      h1 {
+        text-align: left;
+        margin-bottom: 20px;
+        font-size: 40px;
+        font-family: 'Alfa Slab One', sans-serif;
+        color: black;
+        font-weight: bold;
+      }
+    }
+  
+    .lancamentoPageGride {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Altere para 250px para uma maior largura mínima */
+      gap: 20px; /* Espaçamento entre os cards */
+      width: 100%; /* Certifique-se de que o grid ocupa 100% do espaço disponível */
+  
+      .lancamentoProduto {
+        background-color: #fff;
+        padding: 20px;
+        box-sizing: border-box;
+        transition: transform 0.3s;
+        cursor: pointer;
+  
+        &:hover {
+          transform: translateY(-5px);
+        }
+  
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+  
+        .lancamentoDetalhes {
+          margin-top: 10px;
+          font-family: 'Montserrat', sans-serif;
+  
+          p {
+            margin: 5px 0;
+            text-align: left;
+            margin-bottom: 10px;
+          }
+  
+          .nomeLancamento {
+            color: black;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+          }
+  
+          .precoLancamento {
+            color: #EC4A7D;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  
+    .mudarPagina {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+  
+      .bttMudarPagina {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        color: #EC4A7D;
+        padding: 10px 15px;
+        cursor: pointer;
+        margin: 0 5px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+  
+        &:hover {
+          background-color: #EC4A7D;
+          color: #fff;
+        }
+  
+        &.ativo {
+          background-color: #EC4A7D;
+          color: white;
+          border-color: #EC4A7D;
+        }
+      }
+    }
+  }
+  
+  /* Responsividade */
+  @media (max-width: 920px) {
+    .lancamentoPageGride {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Menor largura mínima para telas menores */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .lancamentoPageGride {
+      grid-template-columns: 1fr; /* Um card por linha em telas bem pequenas */
+    }
+  }
+  

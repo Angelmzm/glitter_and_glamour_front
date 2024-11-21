@@ -1,0 +1,67 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Certifique-se de que o modal esteja sobre outros elementos */
+    visibility: visible;
+  }
+  
+  .modalContainer {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%; /* Ajuste o tamanho conforme necessário */
+    max-width: 500px; /* Ajuste a largura máxima */
+  }
+  
+
+.deletarContainer {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 23px;
+    color: #00000099;
+
+    .texto1 {
+        color: black;
+        font-weight: bold;
+    }
+
+    .bttDeletar {
+        display: flex;
+        justify-content: flex-end;
+
+        .confirmar {
+            font-size: 14px;
+            color: white;
+            background-color: #EC4A7D;
+            width: 220px;
+            height: 35px;
+            border-radius: 18px;
+            border: none;
+            margin-top: 15px;
+            box-sizing: border-box;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .cancelar {
+            font-size: 14px;
+            color: #EC4A7D;
+            background-color: white;
+            width: 220px;
+            height: 35px;
+            border-radius: 18px;
+            border: solid 1px #EC4A7D;
+            margin-top: 15px;
+            margin-right: 20px;
+            box-sizing: border-box;
+            cursor: pointer;
+            padding: 10px;
+        }
+    }
+}

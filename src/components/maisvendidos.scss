@@ -1,0 +1,76 @@
+.maisVendidosContainer {
+    padding: 40px;
+    box-sizing: border-box;
+    text-align: center;
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        font-family: 'Alfa Slab One', sans-serif;
+    }
+
+    .maisVendidos {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin: 0 auto;
+        max-width: 1200px;
+        text-align: left; 
+    }
+
+    .maisVendidosProduto {
+        box-sizing: border-box;
+        padding: 10px;
+        background-color: #fff;
+        cursor: pointer;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .maisVendidosDetalhes {
+            margin-top: 10px;
+            font-family: 'Montserrat', sans-serif;
+
+            p {
+                margin: 5px 0;
+                text-align: left; 
+            }
+        }
+
+        .nomeMaisVendidos {
+            color: black;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .precoMaisVendidos {
+            color: #EC4A7D;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+    }
+
+    .bttMaisVendidos {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #EC4A7D;
+        color: white;
+        text-decoration: none;
+        border-radius: 18px;
+        font-size: 14px;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}

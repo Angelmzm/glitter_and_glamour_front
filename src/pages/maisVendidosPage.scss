@@ -1,0 +1,94 @@
+.maisVendidosPagecontainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.maisVendidosPageSection h1 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-family: 'Alfa Slab One', sans-serif;
+    color: black;
+    font-weight: bold;
+}
+
+.maisVendidosPageGride {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.maisVendidosProduto {
+    box-sizing: border-box;
+    background-color: #fff;
+    padding: 20px;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.maisVendidosProduto:hover {
+    transform: translateY(-5px);
+}
+
+
+.maisVendidosProduto img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.maisVendidosDetalhes {
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.maisVendidosDetalhes p {
+    margin: 5px 0;
+    text-align: left; 
+    margin-bottom: 10px;
+}
+
+.nomeMaisVendidos {
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.precoMaisVendidos {
+    color: #EC4A7D;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.mudarPagina {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.bttMudarPagina {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #EC4A7D;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.bttMudarPagina:hover {
+    background-color: #EC4A7D;
+    color: #fff;
+}
+
+.bttMudarPagina.ativo {
+    background-color: #EC4A7D;
+    color: white;
+    border-color: #EC4A7D;
+}
