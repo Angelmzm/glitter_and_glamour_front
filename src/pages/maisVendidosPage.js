@@ -52,8 +52,8 @@ const LancamentosPage = () => {
         <section className="maisVendidosPageSection">
           <h1>Mais Vendidos</h1>
           <div className="maisVendidosPageGride">
-        {produtos.length > 0 ? (
-          produtos.map(produto => (
+        {produtosPaginaAtual.length > 0 ? (
+          produtosPaginaAtual.map(produto => (
             <div className="maisVendidosProduto" key={produto.id}>
               <Link to={isAdmin ? `/admProdutoPage/${produto.id}` : `/produtoPage/${produto.id}`}>
                 <img src={produto.cover_image} alt={produto.productname} />

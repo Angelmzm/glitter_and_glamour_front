@@ -16,8 +16,8 @@
 
     .maquiagemPageGride {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Altere para 250px para uma maior largura mínima */
-        gap: 20px; /* Espaçamento entre os cards */
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+        gap: 20px; 
         width: 100%;
 
         .maquiagemProduto {
