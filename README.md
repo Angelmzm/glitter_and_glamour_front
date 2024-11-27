@@ -39,15 +39,17 @@ O projeto será executado em `http://localhost:9000/glitter_and_glamour_front`.
 
 ---
 
+## 🖥️ Repositório Backend
+
+- Backend: [Glitter & Glamour - Backend](https://github.com/Angelmzm/glitter_and_glamour_back)
+
+---
+
 ## 🛠️ Tecnologias usadas  
 
 ### Frontend:  
 - **React.js**  
 - **SASS** 
-
-### Backend:  
-Este projeto possui um backend vinculado. Confira o repositório:  
-[Glitter & Glamour - Backend](https://github.com/Angelmzm/glitter_and_glamour_back)
 
 ---
 
