@@ -19,6 +19,8 @@
                 margin-right: 40px;
 
                 img {
+                    width: 190px;
+                    height: 153px;
                     margin-bottom: 20px;
                     cursor: pointer;
                 }
@@ -26,7 +28,7 @@
 
             .imagemPrincipal {
                 width: 450px;
-                height: auto;
+                height: 395px;
                 margin-bottom: 20px;
             }
         }
@@ -231,6 +233,26 @@
 }
 
 @media (max-width: 490px) {
+
+    .thumbnails {
+
+        margin-left: 5px !important;
+        padding-left: 20px !important;
+
+        img {
+            width: 120px !important;
+            height: 110px !important;
+            margin-bottom: 20px;
+            cursor: pointer;
+            padding: 2px !important;
+        }
+    }
+
+    .imagemPrincipal {
+        width: 390px !important;
+        height: 395px;
+        margin-bottom: 20px;
+    }
 
     .outrasOpcoes {
         display: flex;
