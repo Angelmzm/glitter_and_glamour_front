@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import './modalAtlProduto.scss'; 
+import React, { useState, useEffect } from 'react';
+import './modalAtlProduto.scss';
 
-import closeImg from '../../assets/imagens/close.png'; 
+import closeImg from '../../assets/imagens/close.png';
 
 function ModalAtlProduto({ productId }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -10,15 +10,39 @@ function ModalAtlProduto({ productId }) {
         price: '',
         description: '',
         detail: '',
-        is_newArrivals: '',
-        is_topSelling: '',
+        is_newArrivals: false,
+        is_topSelling: false,
         cover_image: '',
         first_image: '',
         second_image: '',
         third_image: '',
     });
 
-    const openModal = () => setIsModalOpen(true);
+    const openModal = async () => {
+        setIsModalOpen(true);
+        try {
+            const response = await fetch(`http://localhost:3000/api/products/${productId}`);
+            if (!response.ok) {
+                throw new Error('Erro ao buscar os dados do produto');
+            }
+            const productData = await response.json();
+            setFormData({
+                productname: productData.productname || '',
+                price: productData.price || '',
+                description: productData.description || '',
+                detail: productData.detail || '',
+                is_newArrivals: productData.is_newArrivals || false,
+                is_topSelling: productData.is_topSelling || false,
+                cover_image: productData.cover_image || '',
+                first_image: productData.first_image || '',
+                second_image: productData.second_image || '',
+                third_image: productData.third_image || '',
+            });
+        } catch (error) {
+            console.error(error); 
+        }
+    };
+
     const closeModal = () => setIsModalOpen(false);
 
     const handleOutsideClick = (event) => {
@@ -29,7 +53,6 @@ function ModalAtlProduto({ productId }) {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-
 
         const processedValue =
             (name === 'is_newArrivals' || name === 'is_topSelling') ? (value === 'sim') : value;
@@ -43,12 +66,15 @@ function ModalAtlProduto({ productId }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        for (const [key, value] of Object.entries(formData)) {
-            if (value === '' || value === null || value === undefined) {
-                alert(`Por favor, preencha o campo "${key}".`);
-                return;
+        // Filtra os campos que foram alterados
+        const updatedFields = Object.entries(formData).reduce((acc, [key, value]) => {
+            if (value !== '' && value !== null) {
+                acc[key] = value;
             }
-        }
+            return acc;
+        }, {});
+
+        console.log('Campos atualizados:', updatedFields);
 
         try {
             const response = await fetch(`http://localhost:3000/api/products/update/${productId}`, {
@@ -56,7 +82,7 @@ function ModalAtlProduto({ productId }) {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(updatedFields),
             });
 
             const data = await response.json();
@@ -65,9 +91,11 @@ function ModalAtlProduto({ productId }) {
                 closeModal();
             } else {
                 alert('Erro ao atualizar produto');
+                console.error(data);
             }
         } catch (error) {
             alert('Erro ao atualizar produto');
+            console.error(error);
         }
     };
 
@@ -104,7 +132,7 @@ function ModalAtlProduto({ productId }) {
                                     value={formData.productname}
                                     onChange={handleInputChange}
                                     placeholder="Ex: Base da Virginia"
-                                    required
+                                    
                                 />
                             </div>
                             <div>
@@ -117,7 +145,7 @@ function ModalAtlProduto({ productId }) {
                                     onChange={handleInputChange}
                                     step="0.01"
                                     placeholder="R$ 0,00"
-                                    required
+                                    
                                 />
                             </div>
                             <div>
@@ -129,7 +157,7 @@ function ModalAtlProduto({ productId }) {
                                     value={formData.description}
                                     onChange={handleInputChange}
                                     placeholder="Descrição"
-                                    required
+                                    
                                 />
                             </div>
                             <div>
@@ -141,7 +169,7 @@ function ModalAtlProduto({ productId }) {
                                     value={formData.detail}
                                     onChange={handleInputChange}
                                     placeholder="Detalhes"
-                                    required
+                                    
                                 />
                             </div>
                             <div>
@@ -151,7 +179,7 @@ function ModalAtlProduto({ productId }) {
                                     name="is_newArrivals"
                                     value={formData.is_newArrivals ? 'sim' : 'nao'}
                                     onChange={handleInputChange}
-                                    required
+                                    
                                 >
                                     <option value="" disabled>
                                         Selecione
@@ -162,7 +190,7 @@ function ModalAtlProduto({ productId }) {
                             </div>
 
                             <div>
-                                <label htmlFor="novoProduto">Novo Produto:</label>
+                                <label htmlFor="novoProduto">Mais Vendidos:</label>
                                 <select
                                     id="novoProduto"
                                     name="is_topSelling"
@@ -187,7 +215,7 @@ function ModalAtlProduto({ productId }) {
                                     value={formData.cover_image}
                                     onChange={handleInputChange}
                                     placeholder="https://exemplo.com/imagem.jpg"
-                                    required
+                                    
                                 />
                             </div>
 

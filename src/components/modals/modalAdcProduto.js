@@ -10,8 +10,8 @@ function ModalAdcProduto() {
         price: '',
         description: '',
         detail: '',
-        is_newArrivals: '',
-        is_topSelling: '',
+        is_newArrivals: false,
+        is_topSelling: false,
         category: '',
         cover_image: '',
         first_image: '',
@@ -31,17 +31,27 @@ function ModalAdcProduto() {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        
-        // Converte 'sim' e 'nao' para booleano
-        const processedValue = 
-            (name === 'is_newArrivals' || name === 'is_topSelling') ? (value === 'sim') : value;
-            (name === 'category' ? parseInt(value, 10) : value);
-        
+    
+        const processedValue =
+            name === 'is_newArrivals' || name === 'is_topSelling'
+                ? value === 'sim' // Converte 'sim' para true e 'não' para false
+                : name === 'category'
+                    ? parseInt(value, 10) // Converte categorias para número
+                    : value; // Mantém o valor original para outros campos
+    
+        console.log(`Campo: ${name}, Valor recebido: ${value}, Valor processado: ${processedValue}`);
+    
         setFormData((prevData) => ({
             ...prevData,
             [name]: processedValue,
         }));
     };
+    
+
+    
+    
+    
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -191,7 +201,7 @@ function ModalAdcProduto() {
                             </div>
                         
                             <div>
-                                <label htmlFor="novoProduto">Novo Produto:</label>
+                                <label htmlFor="novoProduto">Mais Vendidos:</label>
                                 <select
                                     id="novoProduto"
                                     name="is_topSelling"
